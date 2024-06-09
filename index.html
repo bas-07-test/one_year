@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Flip Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .top-bar {
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 24px;
+            position: fixed;
+            top: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 70px; /* Adjust to create space below the top bar */
+        }
+
+        .card {
+            width: 210px;
+            height: 315px;
+            margin: 10px;
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-front {
+            background-color: #fff;
+        }
+
+        .card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-back {
+            background-color: #f8f8f8;
+            color: #333;
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+         /* Popup styles */
+         .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.5s;
+        }
+
+        .popup-content {
+            background-color: #100f0f;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            color: #fff;
+        }
+
+        .popup-overlay.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .close-btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // alert("Happy One Year Mandaaaaaaaaa!!!!!!!!!!");
+            // alert("All this cards have something in it. but you will find something in only one card.");
+            // alert("Let's Go and search");
+            // alert("Don't expect too much only small thing!");
+            // alert("Forget to tell you something")
+            // alert("I love you")
+        };
+    </script>
+</head>
+<body>
+    <div class="top-bar">
+        Happy One Year ❤️
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-back">
+                    <p>First card itself dont expect too much, nothing is here. Go for some other card 😂</p>
+                </div>
+		<div class="card-front">
+                    <img src="image1.jpg" alt="Image 1">
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <img src="hi.gif" alt="Image 6">
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 2">
+                </div>
+                <div class="card-back">
+                    <p>Everything just started from Hi, but now see it is full of torture. But its okay it is always a favourite torture.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 3">
+                </div>
+                <div class="card-back">
+                    <p>Hello Malayalam teacher, don't make me think everthing in malayalam. How will I manage da, But its okay my malayalam got improved. see you in next slide</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 4">
+                </div>
+                <div class="card-back">
+                    <p>Ayoo Paavam, you thought something will be there in this slide? so sad of you, go some other slide madam. Don't get angry</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 5">
+                </div>
+                <div class="card-back">
+                    <p>Why did you give instagram ID to this guy?, see now you have to see all this and got trapped for one year and many more years. So sad of you its okay. Adjust karooooooo</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Some magic happen on sometime, some miracle happen on sometime, sometime some big luck you will get, But I dont know you are some magic or some miracle or some luck, but you are something special I got</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Daaaaa is not a word, it is an emotion.🤭</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>You should be happy that you got Sharuk khan lite 🫣🫣🫣</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>I am your tamil teacher always. Dont worry soon we can learn Tamil. And the letter you wrote for me, nee muth allaee ❤️</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>My pickup lines and dialogues always torture you. and Think twice, In the end you still want those 😝️</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Our dummy proposals and funny breakups are always bliss and fun. That time itself you have accepted me remember😝️</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Kerala people are dangerors only, but not you🤐</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Our Chuchuchuchuduu never ends anywhere👻</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Waiting for my Commission. Please pass the exam and get my commission.😜😜😜</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <img src="ghost2.gif" alt="Image 6">
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>You detective mind almost all times find correctly I am in sleepy mode. Don't worry one day that 6AM also will come 🤞</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>It is actually only one year. But doesn't feel like one year it looks like so many years. did we spend only one year actually?🤔</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Next time Pakka sure you will get this</p>
+                    <a href="ferrero.html" target="_blank">Taste it</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Actually you have super drawing skills. The profile picture mine you have drawn right. No one has done it before. So special for me.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>August 1st: Speciality is we met first time. How will I forget this beggar lady😂</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>We always be our own version of Tom and Jerry. Both of us does not have brain 🤭</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>May be it started on 9th but it took 10 days to come into whatsapp. But that Scammer fear was epic. Be careful I am still a scammer 👻</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Happy ah <br> Double Happy ah <br> Triple Happy ah?</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>My sighiting jounery will continue. Dont worry we both together can sight 🫣️</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <img src="haha.gif" alt="Image 6">
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Thank you for accepting me as cute and telling that to me as well. You will extra chocolate for this 😘</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>I will keep forgetting things, But no worries, you are there to remind me right🫣🫣🫣</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Torturing you is my favourite part and I will keep doing that 👻</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>August 1st What is special in that.</p>
+                    <a href="https://bas-07-test.github.io/Mottu_Bday/" target="_blank">Check Here!</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <img src="love.gif" alt="Image 6">
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>You are in that yellow saree ayoooo so beautiful. Koncham buildup thaan but adjust karo</p>
+                    <a href="https://www.youtube.com/watch?v=dszJkelGKNI" target="_blank">Yellow</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Don't expect all cards should have something da, I just kept some cards blank to irritate you.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>My favourite but I think yours also. My correct guess I think.</p>
+                    <a href="https://www.imdb.com/title/tt10919132/" target="_blank">See</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <img src="ghost1.gif" alt="Image 6">
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>We can say or we can't say this is our favourite. But I have guessed so many times correctly</p>
+                    <a href="https://www.youtube.com/watch?v=pVkDZueTBpY" target="_blank">Check now</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>We may not have so much time spend in person. But we have lot of memories in our chats and calls. Two weeks once call has so much is there. Always cherish those moments</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>May 18th: <br> Something special happened. We met for second time with full of surprise. The time we have spend eventhough it was 4 hours it went like 4 minutes. And importanly I got to know how your serious posture will look like 🤣🤣🤣</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Plan is still on Dont worry</p>
+                    <a href="himalayas.html" target="_blank">Let's go</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>When we are in train. In my mind only this song is playing</p>
+                    <a href="https://www.youtube.com/watch?v=nEmXbPEUjPI" target="_blank">Hear it</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <img src="run.gif" alt="Image 6">
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Install Random Stranger app and say Hi to test123_07</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Chotu Motu Always ❤️</p>
+                    <a href="chotumotu.jpeg" target="_blank">Hii</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Me without talking to you and you without talking to me</p>
+                    <a href="jerry.jpg" target="_blank">See</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>Thanks for this  ❤️ </p>
+                    <a href="lovemocktail.mp4" target="_blank">Play</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>May 21st: Something Miracle Happened to my life</p>
+                    <a href="proposal.png" target="_blank">Miracle</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>May 22nd: Something Miracle I did</p>
+                    <a href="magic.png" target="_blank">Magic</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="image1.jpg" alt="Image 6">
+                </div>
+                <div class="card-back">
+                    <p>I want both of us to live like this</p>
+                    <a href="https://www.youtube.com/watch?v=FEd-cRfygIk" target="_blank">Hope</a>
+                </div>
+            </div>
+        </div>
+       
+
+        
+
+
+
+
+
+    </div>
+    <!-- Popup Overlays -->
+    <div class="popup-overlay" id="popup1">
+        <div class="popup-content">
+            <p>Happy One Year Mandaaaa 👻👻👻</p>
+            <button class="close-btn" onclick="closePopup(1)">Close</button>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="popup2">
+        <div class="popup-content">
+            <p>All this cards have something in it. but you will find something in only one card.😜️</p>
+            <button class="close-btn" onclick="closePopup(2)">Close</button>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="popup3">
+        <div class="popup-content">
+            <p>Let's Go and search 🏃‍♀️🏃‍♀️🏃‍♀️</p>
+            <button class="close-btn" onclick="closePopup(3)">Close</button>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="popup4">
+        <div class="popup-content">
+            <p>Don't expect too much only small thing!😝️😝️😝️ and behind the card some of them will be in blue color and underlined. for those you have to click that place and redirect you to some other link okay ah?</p>
+            <button class="close-btn" onclick="closePopup(4)">Close</button>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="popup5">
+        <div class="popup-content">
+            <p>Forget to tell you something 🫣️🫣️🫣️</p>
+            <button class="close-btn" onclick="closePopup(5)">Close</button>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="popup6">
+        <div class="popup-content">
+            <p>I love you so much ❤️</p>
+            <button class="close-btn" onclick="closePopup(6)">Close</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            showPopup(1);
+        };
+
+        function showPopup(number) {
+            document.getElementById('popup' + number).classList.add('show');
+        }
+
+        function closePopup(number) {
+            document.getElementById('popup' + number).classList.remove('show');
+            if (number < 6) {
+                showPopup(number + 1);
+            }
+        }
+    </script>
+</body>
+</html>
